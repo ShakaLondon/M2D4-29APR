@@ -43,7 +43,11 @@
       }
 
       .halfPageJumbo {
-        height: 50%vh;
+        height: 50vh;
+      }
+
+      .quarPageJumbo {
+        height: 25vh
       }
 
       .jumbotron {
@@ -87,8 +91,8 @@
         </div>
       </nav>
     </div>
-
-    <div class="jumbotron jumbotron-img container-fluid halfPageJumbo d-xs-none d-sm-block d-md-block d-lg-block text-center">
+    <!-- WELCOME JUMBOTRON -->
+    <div class="jumbotron jumbotron-img halfPageJumbo d-xs-none d-sm-block d-md-block d-lg-block text-center">
       <p class="lead"><h2>The Only Team Generator You Need!</h2>
 
          </p>
@@ -96,22 +100,32 @@
       <p> Make any game easy. No fighting! No fussing!</p>
       <p> Let us pick your Teams!</p>
     </div>
-
-    <div class="jumbotron jumbotron-img container-fluid halfPageJumbo d-xs-none d-sm-block d-md-block d-lg-block text-center">
+    <!-- JUMBOTRON TO ENTER NAMES TO LIST -->
+    <div class="jumbotron jumbotron-img quarPageJumbo d-xs-none d-sm-block d-md-block d-lg-block text-center">
       <p> Enter the names below...</p>
     </br>
       <div class="input-group mb-3">
-        <input type="text" class="form-control" id="nameInput" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <input type="text" class="form-control" id="nameInput" placeholder="Add a player..." aria-label="Recipient's username" aria-describedby="basic-addon2">
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary" id="addName" type="button">Button</button>
+          <button class="btn btn-outline-secondary" id="addName" type="button">ADD NAME</button>
         </div>
       </div>
     </div>
 
+    <!-- HIDDEN LIST TO HOLD NAMES -->
     <div class="hide">
       <ul id="playList">
       </ul>
     </div>
+    
+    <!-- SELECT TEAM SIZE OR NUMBER OF TEAMS -->
+    <div>
+      <div class="row-col">
+
+      </div>
+    </div>
+
+
 
 
 
@@ -130,23 +144,29 @@
     <script>
 
       function addToList() {
-        const inputBox = document.getElementById("nameInput")
 
-        const teamNameInput = inputBox.innerHTML
+        //INPUT VALUE
+        const inputBox = document.getElementById("nameInput") 
 
-        newListEntry = document.createElement(li)
+        const teamNameInput = inputBox.value
+
+        console.log(teamNameInput)
+
+        newListEntry = document.createElement("li")
 
         newListEntry.innerHTML = teamNameInput
 
         const playerList = document.getElementById("playList")
 
         playerList.appendChild(newListEntry)
+
+        console.log(playerList)
  
-      }
+      };
 
-      console.log(inputBox)
 
-      window.onload () {
+
+      window.onload = function() {
         const submitButton = document.getElementById("addName")
 
         submitButton.addEventListener('click', addToList)
