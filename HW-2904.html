@@ -117,10 +117,32 @@
       <ul id="playList">
       </ul>
     </div>
-    
+
     <!-- SELECT TEAM SIZE OR NUMBER OF TEAMS -->
     <div>
-      <div class="row-col">
+      <div class="row container-fluid text-center quarPageJumbo">
+        <div class="col-5 my-auto mx-auto">
+          <div>
+            <h4>CHOOSE NUMBER OF TEAMS</h4>
+          </div> 
+          <div>
+            <input id="nOteams" type="number" max="20" min="2" class="form-control" id="teamNumber" oninput="disableBox" aria-label="Number of Teams" aria-describedby="basic-addon2">
+          </div>
+        </div>
+        <div class="col-2 my-auto mx-auto">
+          <div>
+            <h4>OR</h4>
+          </div> 
+        </div>
+        <div class="col-5 my-auto mx-auto">
+          <div>
+            <h4>CHOOSE PLAYERS IN TEAMS</h4>
+          </div> 
+          <div>
+            <input id="nOplayers" type="number"  max="20" min="2" class="form-control" id="playerNumber" oninput="disableBox" aria-label="Number of Players" aria-describedby="basic-addon2">
+          </div>
+        </div>  
+      
 
       </div>
     </div>
@@ -166,10 +188,40 @@
 
 
 
+      function disableBox() {
+        let numberTeams = document.getElementById("nOteams").value
+        let numberPlayers = document.getElementById("nOplayers").value
+
+        console.log(numberTeams)
+
+        if (numberTeams != "") {
+          numberPlayers.setAttribute("disabled")
+        } else {
+          numberPlayers.removeAttribute("disabled")
+        }
+        
+        
+        if (numberPlayers != ""){
+          numberTeams.setAttribute("disabled")
+        } else {
+          numberTeams.removeAttribute("disabled")
+        }
+      }
+
+
+
       window.onload = function() {
         const submitButton = document.getElementById("addName")
 
         submitButton.addEventListener('click', addToList)
+
+        // const numberTeams = document.getElementById("nOteams")
+        // const numberPlayers = document.getElementById("nOplayers")
+
+        // numberTeams.addEventListener('input', disableBox)
+        // numberPlayers.addEventListener('input', disableBox)
+
+        
         
       }
     </script>
