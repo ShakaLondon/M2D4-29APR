@@ -58,6 +58,14 @@
         display: none;
       }
 
+      .radButton {
+        box-sizing: content-box;
+      }
+
+      .form-contol-lg {
+        font-size: 2rem !important;
+      }
+/* display: grid !important; */
 
 
 
@@ -120,33 +128,32 @@
 
     <!-- SELECT TEAM SIZE OR NUMBER OF TEAMS -->
     <div>
-      <div class="row container-fluid text-center quarPageJumbo">
-        <div class="col-5 my-auto mx-auto">
-          <div>
-            <h4>CHOOSE NUMBER OF TEAMS</h4>
-          </div> 
-          <div>
-            <input id="nOteams" type="number" max="20" min="2" class="form-control" id="teamNumber" oninput="disableBox" aria-label="Number of Teams" aria-describedby="basic-addon2">
+      <div class="row container-fluid text-center quarPageJumbo d-flex mr-none pr-none radButton">
+        <div class="container-fluid col-6 col-xs-2 col-sm-4 my-auto mx-auto">
+          <!-- radio button -->
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active my-5">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked> CHOOSE NUMBER OF PLAYER
+            </label>
+            <label class="btn btn-secondary my-5">
+              <input type="radio" name="options" id="option2" autocomplete="off"> CHOOSE NUMBER OF TEAMS
+            </label>
+            
           </div>
-        </div>
-        <div class="col-2 my-auto mx-auto">
-          <div>
-            <h4>OR</h4>
-          </div> 
-        </div>
-        <div class="col-5 my-auto mx-auto">
-          <div>
-            <h4>CHOOSE PLAYERS IN TEAMS</h4>
-          </div> 
-          <div>
-            <input id="nOplayers" type="number"  max="20" min="2" class="form-control" id="playerNumber" oninput="disableBox" aria-label="Number of Players" aria-describedby="basic-addon2">
+
+          <!-- <div class="">
+            <input id="nOplayers" type="number"  max="20" min="2" class="form-control input-lg" id="playerNumber" oninput="disableBox" aria-label="Number of Players" aria-describedby="basic-addon2">
           </div>
-        </div>  
+        </div>   -->
       
 
       </div>
     </div>
 
+    <div class="container-fluid input-group input-lg gridDisplay col-6 col-xs-2 col-sm-4 mx-auto">
+      <input id="nOplayers" type="number"  max="20" min="2" class="form-control-lg" id="playerNumber" oninput="disableBox" aria-label="Number of Players" aria-describedby="basic-addon2">
+      
+    </div>
 
 
 
